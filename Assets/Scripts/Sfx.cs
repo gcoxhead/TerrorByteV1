@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Sfx : MonoBehaviour
 {
- public AudioSource Bell;
- public AudioSource Explode;
+ public AudioSource Alarm;
+ public AudioSource Blip;
 
- public void playBell()
+ public void playBlip()
  {
-    Bell.Play();
+    Blip.Play();
  }
 
- public void playExplode()
+ public void playAlarm()
  {
-    Explode.Play();
+    Alarm.Play();
  }
 
 }

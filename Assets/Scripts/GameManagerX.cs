@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
+
 
 public class GameManagerX : MonoBehaviour
 {
@@ -15,7 +17,11 @@ public class GameManagerX : MonoBehaviour
 
     public GameObject uiLevel;
     public GameObject uiStart;
-    public GameObject itemCount;
+    public GameObject startCamera;
+    public GameObject mainCamera;
+    public AudioSource alarm;
+    
+    
     // public Button restartButton; 
     // public Button quitButton; 
     // public List<GameObject> targetPrefabs;
@@ -34,16 +40,21 @@ public class GameManagerX : MonoBehaviour
     // Start the game, remove start screen, reset scores.
     public void Awake()
     {
-       //uiStart.gameObject.SetActive(true);
-       StartGame(1);
+       uiStart.gameObject.SetActive(true);
+       startCamera.gameObject.SetActive(true);
+       uiLevel.gameObject.SetActive(false);
+       mainCamera.gameObject.SetActive(false);
+       isGameActive = false;
+       
     }
-    
     
     public void StartGame(int difficulty)
     {
         isGameActive = true;
         uiStart.gameObject.SetActive(false);
-
+        uiLevel.gameObject.SetActive(true);
+        startCamera.gameObject.SetActive(false);
+        mainCamera.gameObject.SetActive(true);
         byteScore = 0;
         time = 60;
         Debug.Log ("Countdown Set");
@@ -66,8 +77,17 @@ public class GameManagerX : MonoBehaviour
  
         if (isGameActive)
         {
+            //countdown timer
             time -= Time.deltaTime;
             timeText.text = ("Time: " + Mathf.Round(time));
+            
+            // play alarm sound for the last 10 seconds
+            
+            if (time<=10)
+            { 
+
+                Debug.Log("Alarm Triggered");
+            }
 
             if (time <0)
             { 
@@ -76,58 +96,7 @@ public class GameManagerX : MonoBehaviour
         }
     }
 
-    //public void UpdateScore(int scoreToAdd)
-    //{
-
-       // score += scoreToAdd;
-       // scoreText.text = "Score:"+ score;
-
-       // if (score>highScore)
-       // {
-         //   highScore = score;
-          //  highscoreText.text = "Highscore" + highScore;
-       // }
-        
-       // if (scoreToAdd == 15 )
-      //  {
-          //  blueberryScore += 1 ;
-          //  blueberryCount.text = "" + blueberryScore ;
-
-       // }
-        
-        // if (scoreToAdd == 10 )
-       // {
-        //    strawberryScore += 1 ;
-       //     strawberryCount.text = "" + strawberryScore ;
-
-       // }
-
-        // if (scoreToAdd == 5 )
-        //{
-          //  daisyScore += 1 ;
-         //   daisyCount.text = "" + daisyScore ;
-
-       // }
-        
-
-        //highscoreText.text = "Highscore: " + highScore;
-
-        //health += scoreToAdd;
-
-        //if (health >= 100)
-        //{
-           // health = 100;
-          //  healthText.text = "Health:"+ health + "%";
-        //}
-        //else if (health <= 0)
-        //{
-           // health = 0;
-            //healthText.text = "Health:"+ health + "%";
-           // GameOver();
-        //}
-       // else
-        //healthText.text = "Health:"+ health;
-   // }
+    
 
     // Stop game, bring up game over text and restart button
     public void GameOver()
@@ -166,5 +135,4 @@ public class GameManagerX : MonoBehaviour
 
 
     }
-
 }
