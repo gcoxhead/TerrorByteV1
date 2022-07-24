@@ -6,6 +6,7 @@ public class Sfx : MonoBehaviour
 {
  public AudioSource Alarm;
  public AudioSource Blip;
+ public AudioSource DialUp;
 
  public void playBlip()
  {
@@ -15,6 +16,11 @@ public class Sfx : MonoBehaviour
  public void playAlarm()
  {
     Alarm.Play();
+ }
+
+public void playDialUp()
+ {
+    DialUp.Play();
  }
 
 }

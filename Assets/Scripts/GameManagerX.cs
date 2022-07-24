@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Audio;
+
 
 
 public class GameManagerX : MonoBehaviour
@@ -19,6 +19,9 @@ public class GameManagerX : MonoBehaviour
     public GameObject uiStart;
     public GameObject startCamera;
     public GameObject mainCamera;
+    public GameObject uiGameOver;
+    public GameObject uiReboot;
+    public GameObject Level1;
     public AudioSource alarm;
     
     
@@ -43,8 +46,11 @@ public class GameManagerX : MonoBehaviour
        uiStart.gameObject.SetActive(true);
        startCamera.gameObject.SetActive(true);
        uiLevel.gameObject.SetActive(false);
+       uiGameOver.gameObject.SetActive(false);
        mainCamera.gameObject.SetActive(false);
        isGameActive = false;
+       lives = 2;
+       livesText.text = "BackUps:" + lives ;
        
     }
     
@@ -53,14 +59,18 @@ public class GameManagerX : MonoBehaviour
         isGameActive = true;
         uiStart.gameObject.SetActive(false);
         uiLevel.gameObject.SetActive(true);
+
+        uiGameOver.gameObject.SetActive(false);
+        uiReboot.gameObject.SetActive(false);
+    
         startCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
         byteScore = 0;
-        time = 60;
+        time = 10;
         Debug.Log ("Countdown Set");
-        lives = 3;
+        
 
-        ClearPreviousScore();
+        //ClearPreviousScore();
 
         //UpdateScore(0);
         uiStart.gameObject.SetActive(false);
@@ -81,13 +91,7 @@ public class GameManagerX : MonoBehaviour
             time -= Time.deltaTime;
             timeText.text = ("Time: " + Mathf.Round(time));
             
-            // play alarm sound for the last 10 seconds
-            
-            if (time<=10)
-            { 
-
-                Debug.Log("Alarm Triggered");
-            }
+            // check if countdown time is over
 
             if (time <0)
             { 
@@ -101,20 +105,26 @@ public class GameManagerX : MonoBehaviour
     // Stop game, bring up game over text and restart button
     public void GameOver()
     {
-        //gameOverText.gameObject.SetActive(true);
-        //restartButton.gameObject.SetActive(true);
-        //quitButton.gameObject.SetActive(true);
-        //highscoreText.gameObject.SetActive(true);
-        //scoreText.gameObject.SetActive(false);
-        //timerText.gameObject.SetActive(false);
-        isGameActive = false;
-        
+         uiReboot.gameObject.SetActive(true);
+         startCamera.gameObject.SetActive(true);
+         uiLevel.gameObject.SetActive(false);
+         mainCamera.gameObject.SetActive(false);
+         isGameActive = false;
+         lives -= 1;
+         if (lives<0)
+             {
+                uiGameOver.gameObject.SetActive(true);
+                lives = 2;
+             }
+
+         livesText.text = "BackUps:" + lives ;
+
     }
 
     // Restart game by reloading the scene
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Level1");
     }
 
     public void PlayAgain()
@@ -127,7 +137,7 @@ public class GameManagerX : MonoBehaviour
         byteScore = 0;
         byteText.text = "Bytes:" + byteScore ;
         lives = 3;
-        livesText.text = "Lives:" + lives ;
+        livesText.text = "BackUps:" + lives ;
         //usbScore = 0;
         //.text = "Lives:" + lives ;
         //lives = 3;
