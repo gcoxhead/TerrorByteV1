@@ -26,6 +26,15 @@ public class animationStateController : MonoBehaviour
                 animator.SetBool("isRunning", false);
             }
 
+         if (Input.GetKey("down"))
+            {
+                animator.SetBool("isBackwards", true);
+            }
+        if (!Input.GetKey("down"))
+            {
+                animator.SetBool("isBackwards", false);
+            }
+
         if (Input.GetKey("space"))
             {
                 animator.SetBool("isJumping", true);

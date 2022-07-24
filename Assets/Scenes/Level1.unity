@@ -6850,7 +6850,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 19f569c54f28244bc8fb67fdb42f211f, type: 3}
   m_PrefabInstance: {fileID: 1541818023}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1562006554
+--- !u!65 &1562006557
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8986,7 +8986,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  horsePower: 0
   turnSpeed: 200
 --- !u!4 &2036970355 stripped
 Transform:

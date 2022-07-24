@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     //private variables. Make public to display in the unity inspector
     [SerializeField] private float speed = 10.0f;
-    [SerializeField] private float horsePower = 0;
+    //[SerializeField] private float horsePower = 0;
     [SerializeField] private float turnSpeed = 90.0f;
     private float horizontalInput;
     private float verticalInput;
@@ -31,11 +31,7 @@ public class PlayerController : MonoBehaviour
         
         //Move the forward
         transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput) ;
-        //playerRb.AddRelativeForce(Vector3.forward * horsePower * verticalInput);
-
-        //Move the vehicle in the horizontal axis
-        //transform.Translate(Vector3.right * Time.deltaTime * turnSpeed * horizontalInput) ;
-
+       
         //Rotate the character
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput) ;
     }
