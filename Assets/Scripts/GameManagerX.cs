@@ -66,7 +66,7 @@ public class GameManagerX : MonoBehaviour
         startCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
         byteScore = 0;
-        time = 10;
+        time = 120;
         Debug.Log ("Countdown Set");
         
 
