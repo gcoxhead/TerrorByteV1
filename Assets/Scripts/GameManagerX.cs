@@ -23,8 +23,8 @@ public class GameManagerX : MonoBehaviour
     public GameObject uiReboot;
     public GameObject Level1;
     public AudioSource alarm;
-    
-    
+    //public GameObject playerController;
+     
     // public Button restartButton; 
     // public Button quitButton; 
     // public List<GameObject> targetPrefabs;
@@ -35,7 +35,7 @@ public class GameManagerX : MonoBehaviour
     private int lives;
     private int usbScore;
     private int hddScore;
-    private int byteScore;
+    public int byteScore;
     public bool isGameActive;
 
     //Static Game Settings
@@ -48,9 +48,10 @@ public class GameManagerX : MonoBehaviour
        uiLevel.gameObject.SetActive(false);
        uiGameOver.gameObject.SetActive(false);
        mainCamera.gameObject.SetActive(false);
+      
        isGameActive = false;
        lives = 2;
-       livesText.text = "BackUps:" + lives ;
+       livesText.text = "BackUps Remaining:" + lives ;
        
     }
     
@@ -66,7 +67,7 @@ public class GameManagerX : MonoBehaviour
         startCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
         byteScore = 0;
-        time = 120;
+        time = 30;
         Debug.Log ("Countdown Set");
         
 
@@ -117,7 +118,7 @@ public class GameManagerX : MonoBehaviour
                 lives = 2;
              }
 
-         livesText.text = "BackUps:" + lives ;
+         livesText.text = "BackUps Remaining:" + lives ;
 
     }
 
@@ -137,7 +138,7 @@ public class GameManagerX : MonoBehaviour
         byteScore = 0;
         byteText.text = "Bytes:" + byteScore ;
         lives = 3;
-        livesText.text = "BackUps:" + lives ;
+        livesText.text = "BackUps Remaining:" + lives ;
         //usbScore = 0;
         //.text = "Lives:" + lives ;
         //lives = 3;

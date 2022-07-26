@@ -43,9 +43,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.83214664, g: 0.9300843, b: 0.9433962, a: 1}
-  m_Intensity: 3.81
-  m_Range: 10.79
-  m_SpotAngle: 73
+  m_Intensity: 4.99
+  m_Range: 11.09
+  m_SpotAngle: 77
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 1538809726626859238}
   m_Layer: 0
   m_Name: floppyDisk (1)
-  m_TagString: Untagged
+  m_TagString: Floppy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 2166552373037814364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18, y: 7, z: 12}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 906360858076432216}
   m_Father: {fileID: 0}
@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 882790953578220249}
   - component: {fileID: 8027928916181265090}
   - component: {fileID: 4664172730363462433}
+  - component: {fileID: 629043576}
+  - component: {fileID: 4436117512643976604}
   m_Layer: 0
   m_Name: FloppyDisk.vox
   m_TagString: Untagged
@@ -151,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5666841909273953517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9330416, y: 1.0906153, z: 0.24859619}
+  m_LocalPosition: {x: 8.059999, y: -3.25, z: -22}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 9045654756248324683}
@@ -220,3 +222,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 100
+--- !u!65 &629043576
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666841909273953517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.018999998, z: 0.0020000003}
+  m_Center: {x: 0.000116621144, y: 0.00015817536, z: -0.000000029802322}
+--- !u!114 &4436117512643976604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666841909273953517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6891c37e0fa46afbe937ffb023d795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
